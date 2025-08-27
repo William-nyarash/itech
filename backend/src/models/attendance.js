@@ -23,4 +23,13 @@ const AttendanceSchema = new mongoose.Schema({
   { timestamps: true }
 );
 
-module.exports = mongoose.model("attendance", AttendanceSchema);
+AttendanceSchema.set('toJSON', {
+  transform:(document, returnedObject) =>{
+    returnedObject.id= returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  }
+})
+const Attendance= mongoose.model('Attendance', AttendanceSchema);
+
+module.exports = Attendance;
