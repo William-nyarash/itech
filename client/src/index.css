@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+ @media (min-width: 48rem) {
+    .card-container{
+     width: 80%;
+    max-width: 750px;
+    gap:1.3rem;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   flex-direction: row;
+   justify-content:space-evenly
+    }
+    
+ }
