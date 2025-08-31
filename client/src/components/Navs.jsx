@@ -2,19 +2,28 @@ const Navs =()=> {
 
     return (
         <>
-            <header className=" 
-            rounded-2xl fixed
-            flex h-10   w-[99%] mx-auto items-center justify-between gap-8 px-4 sm:px-6 border-b-[1px]  border-[gray]
-            " >
-                <div>logo</div>
-                <ul className="
-                    flex items-center gap-6
-                " >
-                    <li>login</li>
-                    <li>events</li>
-                    <li>admin</li>
-                </ul>
-            </header>
+        <header
+        className="
+        fixed top-4 left-1/2 -translate-x-1/2
+        flex w-[95%] max-w-6xl items-center justify-between
+        rounded-2xl border border-gray-200 bg-white/70 backdrop-blur-md shadow-lg
+        px-6 py-3
+        uppercase
+        z-50
+        "
+        >
+            <div className="text-xl font-bold tracking-wide text-gray-800">
+             Logo
+            </div>
+            <ul className="flex items-center gap-8 text-gray-700 font-medium">
+                <li className="cursor-pointer transition-colors hover:text-blue-600">
+                    Login
+                </li>
+                <li className="cursor-pointer transition-colors hover:text-blue-600">
+                    Events
+                </li>
+            </ul>
+        </header>
         </>
     )
 }
