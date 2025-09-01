@@ -1,3 +1,6 @@
+import {
+    Link
+} from "react-router-dom"
 const Navs =()=> {
 
     return (
@@ -17,10 +20,15 @@ const Navs =()=> {
             </div>
             <ul className="flex items-center gap-8 text-gray-700 font-medium">
                 <li className="cursor-pointer transition-colors hover:text-blue-600">
-                    Login
+                    <Link to='/login'>
+                        Log in
+                    </Link> 
                 </li>
                 <li className="cursor-pointer transition-colors hover:text-blue-600">
-                    Events
+                    <Link to="/events">Events</Link>
+                </li>
+                <li className="cursor-pointer transition-colors hover:text-blue-600">
+                    <Link to="/attendance">attendance</Link>
                 </li>
             </ul>
         </header>
