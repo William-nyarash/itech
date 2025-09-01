@@ -14,25 +14,20 @@ const Navs =()=> {
         uppercase
         z-50
         "
-        >
-            <div className="text-xl font-bold tracking-wide text-gray-800">
-             Logo
-            </div>
-            <ul className="flex items-center gap-8 text-gray-700 font-medium">
-                <li className="cursor-pointer transition-colors hover:text-blue-600">
-                    <Link to='/login'>
-                        Log in
-                    </Link> 
-                </li>
-                <li className="cursor-pointer transition-colors hover:text-blue-600">
-                    <Link to="/events">Events</Link>
-                </li>
-                <li className="cursor-pointer transition-colors hover:text-blue-600">
-                    <Link to="/attendance">attendance</Link>
-                </li>
-            </ul>
-        </header>
-        </>
+      >
+        <div className="text-xl font-bold tracking-wide text-gray-800">
+          Logo
+        </div>
+        <ul className="flex items-center gap-8 text-gray-700 font-medium">
+          <li className="cursor-pointer transition-colors hover:text-blue-600">
+            <Link to="/login">Log in</Link>
+          </li>
+          <li className="cursor-pointer transition-colors hover:text-blue-600">
+            <Link to="/attendance">Attendance</Link>
+          </li>
+        </ul>
+      </header>
+       </>
     )
 }
 export default Navs;
