@@ -19,3 +19,35 @@
     }
     
  }
+li {
+    list-style: none;
+    padding-left: 0;
+}
+
+.dashboard {
+    position: relative;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "navbar navbar"
+    "nav main"
+    "nav footer";
+    min-height:80vh;
+    background: rgb(121, 94, 94);
+}
+nav {
+    grid-area: navbar;
+    grid-row: auto;
+    font-size: 1.4rem;
+}
+aside {
+   grid-area: nav;
+    height: calc(100vh - 70.5px);
+}
+main {
+   grid-area: main;
+}
+footer {
+    grid-area: footer;
+}
