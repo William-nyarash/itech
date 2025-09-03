@@ -27,13 +27,26 @@
 };
 
 const createAttendance = async (req, res) => {
+
   try {
-    const { user, date, status } = req.body;
+    
+    const { userId, date, status } = req.body;
 
-    const attendanceDate = new Date(date);
-    attendanceDate.setHours(0, 0, 0, 0);
+    if (!userId || !date || !status ) {
+      return res.status(400).json({ message: "User, date, and status are required" });
+    }
 
-    let attendance = await Attendance.findOne({ user, date: attendanceDate });
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+  
+    let attendance = await Attendance.findOne({
+      userId,
+      date: { $gte: startOfDay, $lte: endOfDay },
+    });
 
     if (attendance) {
       attendance.status = status;
@@ -43,7 +56,9 @@ const createAttendance = async (req, res) => {
         attendance,
       });
     }
-    attendance = new Attendance({ user, date: attendanceDate, status });
+
+
+    attendance = new Attendance({ userId, date: startOfDay, status });
     const savedAttendance = await attendance.save();
 
     res.status(201).json({
@@ -51,9 +66,11 @@ const createAttendance = async (req, res) => {
       attendance: savedAttendance,
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("Error creating attendance:", error.message, error.stack);
+    res.status(500).json({ message: "Server error: " + error.message });
   }
 };
+
 
  const deleteAttendance = (req, res) => {
    try {
