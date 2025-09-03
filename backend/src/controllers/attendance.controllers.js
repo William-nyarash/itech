@@ -1,7 +1,6 @@
  const Attendance  = require('../models/attendance');
 
  const getAttendance = async (req, res) => {
-const getAttendance = async (req, res) => {
   try {
     const attendance = await Attendance.find({});
     res.json(attendance);
@@ -10,7 +9,7 @@ const getAttendance = async (req, res) => {
     res.status(500).json({ message: "Server Error: Unable to fetch attendance" });
   }
 };
-};
+
  const updateAttendance = async(req, res) => {
     try{
         const {id} = req.params;
